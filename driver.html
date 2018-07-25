@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Final Project</title>
+		<style>
+			#search_bar {
+				background-image: url('https://www.w3schools.com/css/searchicon.png');
+				background-position: 10px 12px;
+				background-repeat: no-repeat;
+				width: 95%;
+				font-size: 16px;
+				padding: 12px 20px 12px 40px;
+				border: 1px solid #ddd;
+				margin-bottom: 12px;	
+			}
+
+			#bookTable {
+				border-collapse: collapse;
+				width: 100%;
+				border: 1px solid #ddd;
+				font-size: 18px;		
+			}
+
+			#bookTable th, #bookTable td {
+				text-align: left;
+				padding: 12px;
+			}
+
+			#bookTable tr {
+				border-bottom: 1px solid #ddd;
+			}
+
+			#bookTable tr.header, #bookTable tr:hover {
+				background-color: #f1f1f1;
+			}
+		</style>
+	</head>
+	<body>
+			<input type="text" id="search_bar" onkeyup="myFunction()" placeholder="Search by book title/ genre/ author...">
+
+			<table id="bookTable">
+				<tr class="header">
+					<th style="width:28%;">Book Title</th>
+					<th style="width:20%;">Author</th>
+					<th style="width:20%;">Genre</th>
+					<th style="width:16%;">Number of Pages</th>
+					<th style="width:16%;">Aisle</th>
+				</tr>
+				<tr>
+					<td>Black Beauty</td>
+					<td>Anna Sewell</td>
+					<td>Children's Literature</td>
+					<td>255</td>
+					<td>C-25-45</td>
+				</tr>
+				<tr>
+					<td>Jane Eyre</td>
+					<td>Charlotte Bronte</td>
+					<td>Novel</td>
+					<td>592</td>
+					<td>N-03-24</td>
+				</tr>
+				<tr>
+					<td>Adventures of Huckleberry Finn</td>
+					<td>Mark Twain</td>
+					<td>Picaresque Fiction</td>
+					<td>366</td>
+					<td>F-15-02</td>
+				</tr>
+				<tr>
+					<td>House of Many Ways</td>
+					<td>Diana Wynne Jones</td>
+					<td>Young Adult Fiction</td>
+					<td>338</td>
+					<td>Y-17-14</td>
+				</tr>
+				<tr>
+					<td>'Salem's Lot</td>
+					<td>Stephen King</td>
+					<td>Horror Fiction</td>
+					<td>439</td>
+					<td>F-49-01</td>
+				</tr>
+			</table>
+
+			<script>
+			function myFunction() {
+				var input, filter, table, tr, td1, td2, td3, i;
+				input = document.getElementById("search_bar");
+				filter = input.value.toUpperCase();
+				table = document.getElementById("bookTable");
+				tr = table.getElementsByTagName("tr");
+				for (i=0; i<tr.length; i++) {
+					td1 = tr[i].getElementsByTagName("td")[0];
+					td2 = tr[i].getElementsByTagName("td")[1];
+					td3 = tr[i].getElementsByTagName("td")[2];
+					if (td1 || td2 || td3) {
+						if (td1.innerHTML.toUpperCase().indexOf(filter) > -1 || td2.innerHTML.toUpperCase().indexOf(filter) > -1 || td3.innerHTML.toUpperCase().indexOf(filter) > -1 ) {
+							tr[i].style.display = "";	
+						}
+						else {
+							tr[i].style.display = "none";	
+						}
+					}
+				}
+			}
+			</script>	
+	</body>
+</html>
