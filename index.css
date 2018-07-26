@@ -1,0 +1,12 @@
+.topnav {
+	background-color: black;
+	overflow: hidden;	
+}
+
+
+.header {
+	padding: 1px 40px;
+	color: white;
+	float: left;
+	//width: 50%;
+}
